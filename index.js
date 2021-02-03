@@ -1,11 +1,12 @@
 // Assignment One (02.526 IDV)
 'use strict'
+$(document).ready()
 
-/*window.onload = () => { // execute commands inside every time browser reloaded
-    createtodoList()
-}*/
+window.onload = () => { // execute commands inside every time browser reloaded
+    getData()
+}
 
-const getData = async () => {
+/*const getData = async () => {
   try {
     const response = await fetch('https://api.data.gov.sg/v1/transport/carpark-availability');
     if (response.ok) {
@@ -16,8 +17,27 @@ const getData = async () => {
   } catch (error) {
     console.log(error); 
   }
+}*/
+
+function getData => {
+    console.log ("Hello World");
 }
 
+getData();
+
+
+/*fetch('https://api.data.gov.sg/v1/transport/carpark-availability', {
+    method: 'GET',
+    body: JSON.stringify({
+
+    })
+})
+    .then(response => {
+    return response.json();
+})
+    .then(data => console.log(data))
+    .catch(error => console.log("error"));
+*/
 
 
 /*function calculate(){
