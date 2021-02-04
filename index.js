@@ -2,11 +2,10 @@
 //'use strict'
 //$(document).ready()
 
-window.onload = () => { // execute commands inside every time browser reloaded
-    getData();
-    document.write("Hello World");
-
-}
+//window.onload = () => { // execute commands inside every time browser reloaded
+//    getData();
+//    document.write("Hello World");
+//}
 
 /*const getData = async () => {
   try {
@@ -21,13 +20,14 @@ window.onload = () => { // execute commands inside every time browser reloaded
   }
 }*/
 
-function getData => {
-    console.log ("Hello World");
-    document.write("Hello World");
-}
+// function getData => {
+//     console.log ("Hello World");
+//     document.write("Hello World");
+// }
 
-getData();
+// getData();
 
+document.write("Hello World");
 
 /*fetch('https://api.data.gov.sg/v1/transport/carpark-availability', {
     method: 'GET',
