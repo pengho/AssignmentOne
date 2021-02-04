@@ -1,12 +1,11 @@
 // Assignment One (02.526 IDV)
 'use strict'
-$(document).ready()
 
 window.onload = () => { // execute commands inside every time browser reloaded
     getData()
 }
 
-/*const getData = async () => {
+const getData = async () => {
   try {
     const response = await fetch('https://api.data.gov.sg/v1/transport/carpark-availability');
     if (response.ok) {
@@ -17,13 +16,15 @@ window.onload = () => { // execute commands inside every time browser reloaded
   } catch (error) {
     console.log(error); 
   }
-}*/
-
-function getData => {
-    console.log ("Hello World");
 }
 
+/*// this works, try this if anything else doesn't
+var getData = () => {
+    console.log ("Hello World");};
+
 getData();
+*/
+
 
 
 /*fetch('https://api.data.gov.sg/v1/transport/carpark-availability', {
