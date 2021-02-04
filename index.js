@@ -25,6 +25,9 @@ function getData => {
 
 getData();
 
+let d = new Date();
+document.body.innerHTML = "<h1>Today's date is " + d + "</h1>"
+
 
 /*fetch('https://api.data.gov.sg/v1/transport/carpark-availability', {
     method: 'GET',
