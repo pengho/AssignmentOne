@@ -1,6 +1,6 @@
 // Assignment One (02.526 IDV)
-'use strict'
-$(document).ready()
+//'use strict'
+//$(document).ready()
 
 window.onload = () => { // execute commands inside every time browser reloaded
     getData()
@@ -23,11 +23,10 @@ window.onload = () => { // execute commands inside every time browser reloaded
 
 function getData => {
     console.log ("Hello World");
+    document.write("Hello World");
 }
 
 getData();
-
-document.write("Hello World");
 
 
 /*fetch('https://api.data.gov.sg/v1/transport/carpark-availability', {
