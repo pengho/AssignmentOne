@@ -3,7 +3,7 @@
 //$(document).ready()
 
 window.onload = () => { // execute commands inside every time browser reloaded
-    getData()
+    getData();
     document.write("Hello World");
 
 }
