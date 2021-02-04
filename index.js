@@ -4,6 +4,8 @@ $(document).ready()
 
 window.onload = () => { // execute commands inside every time browser reloaded
     getData()
+    document.write("Hello World");
+
 }
 
 /*const getData = async () => {
