@@ -5,18 +5,32 @@ window.onload = () => { // execute commands inside every time browser reloaded
     getData()
 }
 
-const getData = async () => {
-  try {
-    const response = await fetch('https://api.data.gov.sg/v1/transport/carpark-availability');
-    if (response.ok) {
-      const jsonResponse = await response.json();
-      return jsonResponse;
-    }
-    throw new Error('Request failed!');
-  } catch (error) {
-    console.log(error); 
-  }
+const url = "https://api.data.gov.sg/v1/transport/carpark-availability";
+async function getData(){
+    const response = await fetch(url);
+    const data = await response.json();
+    const {carpark_number, update_datetime, total_lots, lots_type, lots_available} = data;
+
+    let carparkData = data.items[0].carpark_data;
+    console.log(carparkData);
+    let firstArray = carparkData[0]; //first object of the array
+    console.log(firstArray);
+    let firstObj = firstArray.carpark_info[0]
+    console.log(firstObj);
+    console.log(firstArray.carpark_number);
+    console.log(firstArray.update_datetime);
+    console.log(firstObj.total_lots);
+    console.log(firstObj.lot_type);
+    console.log(firstObj.lots_available);
+
+
+
+    document.getElementById("dateTime").textContent = update_datetime;
+    document.getElementById("totalLots").textContent = total_lots;
+    document.getElementById("lotsType").textContent = lots_type;
+    document.getElementById("lotsAvailable").textContent = lots_available;           
 }
+
 
 /*// this works, try this if anything else doesn't
 var getData = () => {
@@ -41,81 +55,6 @@ getData();
 */
 
 
-/*function calculate(){
-    let n1 = parseInt(document.getElementById("inputOne").value);
-    let n2 = parseInt(document.getElementById("inputTwo").value);
-    let operator = document.getElementById("operator").value;
-    let result;
-
-
-    switch(operator){
-        case "+":
-            result = n1+n2;
-            break;
-        case"-":
-            result = n1-n2;
-            break;
-        case"*":
-            result = n1*n2;
-            break;
-        case"/":
-            result = n1/n2;
-            break;
-    }
-    document.getElementById("result").innerHTML=result;
-}
-
-function addTask(){
-    let task = document.getElementById("task").value;
-    if(localStorage.getItem("todo")===null){ //if no list, then create one
-        let todo = {}; 
-        localStorage.setItem("todo", JSON.stringify(todo)) //string it
-    }
-    let todoStore = JSON.parse(localStorage.getItem("todo"));
-    let todoIDS = Object.keys(todoStore)
-    let id;
-    if (todoIDS.length === 0){
-        id = 1;        
-    } else {
-        id = parseInt(todoIDS[todoIDS.length -1])+1; //adding index for new item
-    }
-    todoStore[id.toString()] = task;
-    localStorage.setItem("todo", JSON.stringify(todoStore))
-    location.reload() //reload browser
-}
-
-function deleteTask(){
-    let taskID= document.getElementById("taskID").value;
-    let todoStore = JSON.parse(localStorage.getItem("todo"));
-    if (todoStore){
-        delete todoStore[taskID];
-        localStorage.setItem("todo", JSON.stringify(todoStore));  
-    }
-    location.reload(); //refreshes browser
-}
-
-
-function deleteAllTasks() {
-    if(localStorage.getItem("todo")){ //if there is still a todo list, remove all the whole list
-        localStorage.removeItem("todo");
-        location.reload(); //refreshes browser
-    }
-}
-
-
-function createtodoList() {
-    let todo = JSON.parse(localStorage.getItem("todo"))
-    let todoList = document.getElementById("todo"); //accessing the todo container
-
-    if(todo) {
-        for(let item of Object.keys(todo)) { //accessubg all ids in the todo store
-            let task = document.createElement('p') // empty p tag <p>1) task...</p>
-            task.innerHTML = `(${item}) ` + todo[item] // 1) item
-            todoList.appendChild(task) // div with id == "todo" with new p created
-        }
-    }
-}
-*/
 
 /*
 Local Storage
