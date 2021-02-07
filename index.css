@@ -1,3 +1,12 @@
 table {
 	width: 100%;
 }
+
+th, td{
+	text-align: center;
+}
+
+th{
+	background-color: #FBD06A;
+}
+
