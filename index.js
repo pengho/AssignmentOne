@@ -71,22 +71,27 @@ async function getData() {
             const carparkData = data.items[0].carpark_data;
             console.log(carparkData)
             console.log(Object.keys(carparkData).length) //length
+            console.log(carparkData[0]);
+            console.log(carparkData[0].carpark_info);
+
+
+            var table = document.getElementById("myTable")
             for (var i = 0; i < carparkData.length; i++){
             var row = `<tr>
-                            <td>${data[i].carpark_number}</td>
-                            <td>${data[i].update_datetime}</td>
-                            <td>${data[i].lots_available}</td>
-                            <td>${data[i].lots_type}</td>
-                            <td>${data[i].total_lots}</td>
+                            <td>${carparkData[i].carpark_number}</td>
+                            <td>${carparkData[i].update_datetime}</td>
+                            <td>${carparkData[i].lots_available}</td>
+                            <td>${carparkData[i].lots_type}</td>
+                            <td>${carparkData[i].total_lots}</td>
                       </tr>`
             table.innerHTML += row
-    }
-            // code to execute with jsonResponse
-        }
+            }
+        } 
         throw new Error("Request failed");
-    }catch (error) {
+    } 
+        catch (error) {
         console.log(error);
-    }
+        }
 } 
 
 
