@@ -22,15 +22,18 @@ async function getData() {
 
 
             var table = document.getElementById("myTable")
+            var scrollDirection = false;
             for (var i = 0; i < carparkData.length; i++){
-            var row = `<tr>
-                            <td>${carparkData[i].carpark_number}</td>
-                            <td>${carparkData[i].update_datetime}</td>
-                            <td>${carparkData[i].lots_available}</td>
-                            <td>${carparkData[i].lots_type}</td>
-                            <td>${carparkData[i].total_lots}</td>
-                      </tr>`
-            table.innerHTML += row
+                var row = `<tr>
+                                <td>${carparkData[i].carpark_number}</td>
+                                <td>${carparkData[i].update_datetime}</td>
+                                <td>${carparkData[i].carpark_info.lots_available}</td>
+                                <td>${carparkData[i].carpark_info.lots_type}</td>
+                                <td>${carparkData[i].carpark_info.total_lots}</td>
+                          </tr>`
+                table.innerHTML += row
+                onClick scrollDirection = true;
+
             }
         } 
         throw new Error("Request failed");

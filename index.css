@@ -1,5 +1,5 @@
 table {
-	width: 100%;
+	width: 80%;
 }
 
 td{
@@ -14,5 +14,10 @@ th{
 	text-align: center;
 	background-color: #FBD06A;
 	font-size: 25px;
+}
+
+tr:hover td{
+	background-color: #000000;
+	color: #FFFFFF;
 }
 
