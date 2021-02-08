@@ -2,11 +2,17 @@ table {
 	width: 100%;
 }
 
-th, td{
+td{
 	text-align: center;
+	font-size: 18px;
+	background-color: #FAF7EF;
 }
 
+
+
 th{
+	text-align: center;
 	background-color: #FBD06A;
+	font-size: 25px;
 }
 

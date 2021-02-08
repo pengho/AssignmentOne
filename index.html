@@ -16,35 +16,28 @@
     </style>
     <!-- importing JS file -->
     <script src="./index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href = "index.css" rel = "stylesheet" type="text/css"/>
 </head>
 
 
 
 <body>
-    <!--
-    h = title (h[1] to h[i])
-    p = paragraph
-    a = link
-    -->
-
     <h1> Singapore Carpark Availability </h1>
     <h3> 02.526 Interactive Data Visualisation </h3>
     <p> created by Rachel Ng </p>
 
-    <p id="firstCarparkNum"></p>
 
-
-    <br><hr><br><br><br> 
+    <br><br><br>
     <table style="width:100%" >
 
         <thead>
             <tr>
                 <th> Carpark Number </th>
                 <th> Time Stamp </th>
-                <th> Total Lots </th>
-                <th> Lots Type </th>
                 <th> Lots Available </th>
+                <th> Lots Type </th>
+                <th> Total Lots </th>                
                 <th> Utilisation Rate % </th>
             </tr>
         </thead>
@@ -60,7 +53,7 @@
             </tr>
 
             <tr>
-                <td> Hello</td>
+                <td id = "firstCarparkNum"></td>
                 <td id ="dateTime"></td>
                 <td id ="totalLots"></td>
                 <td id ="lotsType"></td>
@@ -69,35 +62,8 @@
             </tr>
         </tbody>
     </table>
-    
+   
 
-    <!-- <script>
-        const url = "https://api.data.gov.sg/v1/transport/carpark-availability";
-        async function getData(){
-            const response = await fetch(url);
-            const data = await response.json();
-            // console.log(data);
-            const {carpark_number, update_datetime, total_lots, lots_type, lots_available} = data;
 
-            let carparkData = data.items[0].carpark_data;
-            console.log(carparkData);
-            let firstArray = carparkData[0]; //first object of the array
-            console.log(firstArray);
-            console.log(firstArray.carpark_info[0]);
-            console.log(firstArray.carpark_info.total_lots);
-
-        
-  
-            document.getElementById("dateTime").textContent = update_datetime;
-            document.getElementById("totalLots").textContent = total_lots;
-            document.getElementById("lotsType").textContent = lots_type;
-            document.getElementById("lotsAvailable").textContent = lots_available;           
-        }
-        getData();
-    </script>  -->
 </body>
-
-
-
-
 </html>

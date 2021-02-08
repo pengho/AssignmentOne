@@ -5,7 +5,9 @@ window.onload = () => { // execute commands inside every time browser reloaded
     getData()
 }
 
-const url = "https://api.data.gov.sg/v1/transport/carpark-availability";
+/*const url = "https://api.data.gov.sg/v1/transport/carpark-availability";
+var carparkData;
+
 async function getData(){
     const response = await fetch(url);
     const data = await response.json();
@@ -13,14 +15,18 @@ async function getData(){
     
     var carparkData = data.items[0].carpark_data;
     console.log(carparkData);
+    // return (carparkData.length);
+    console.log(carparkData.length);
+    
     var firstArray = carparkData[0]; //first object of the array
     console.log(firstArray);
     var firstObj = firstArray.carpark_info[0]
     console.log(firstObj);
 
-    /*var firstCaparkNum = firstArray.carpark_number;
-    console.log(firstArray.carpark_number);*/
-    document.createElement("firstCarparkNum").innerHTML=firstArray.carpark_number;
+
+
+    var firstCaparkNum = firstArray.carpark_number;
+    console.log(firstArray.carpark_number);
 
     var firstUpdateDateTime = firstArray.update_datetime;
     console.log(firstArray.update_datetime);
@@ -32,20 +38,62 @@ async function getData(){
     console.log(firstObj.lot_type);
 
     var firstAvailable = firstObj.lots_available;
-    console.log(firstObj.lots_available);
-           
+    console.log(firstObj.lots_available);           
+}*/
+
+
+/*function buildTable(){
+    var table = document.getElementById('myTable')
+
+    for (var i = 0; i < carparkData.length; i++){
+        var row = `<tr>
+                        <td>${data[i].carpark_number}</td>
+                        <td>${data[i].update_datetime}</td>
+                        <td>${data[i].lots_available}</td>
+                        <td>${data[i].lots_type}</td>
+                        <td>${data[i].total_lots}</td>
+                  </tr>`
+        table.innerHTML += row
+    }
 }
+buildTable(carparkData);*/
 
 
-/*fetch('https://api.data.gov.sg/v1/transport/carpark-availability', {
-    method: 'GET',
-    body: JSON.stringify({
 
-    })
-})
-    .then(response => {
-    return response.json();
-})
-    .then(data => console.log(data))
-    .catch(error => console.log("error"));
-*/
+async function getData() {
+    try{
+        const response = await fetch ("https://api.data.gov.sg/v1/transport/carpark-availability");
+        if (response.ok){
+            const data = await response.json();
+            console.log (data);
+            console.log (typeof(data));
+            console.log(Object.keys(data).length) //length
+            const carparkData = data.items[0].carpark_data;
+            console.log(carparkData)
+            console.log(Object.keys(carparkData).length) //length
+            for (var i = 0; i < carparkData.length; i++){
+            var row = `<tr>
+                            <td>${data[i].carpark_number}</td>
+                            <td>${data[i].update_datetime}</td>
+                            <td>${data[i].lots_available}</td>
+                            <td>${data[i].lots_type}</td>
+                            <td>${data[i].total_lots}</td>
+                      </tr>`
+            table.innerHTML += row
+    }
+            // code to execute with jsonResponse
+        }
+        throw new Error("Request failed");
+    }catch (error) {
+        console.log(error);
+    }
+} 
+
+
+
+
+
+
+
+
+
