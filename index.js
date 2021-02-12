@@ -15,25 +15,28 @@ async function getData() {
             console.log (typeof(data));
             console.log(Object.keys(data).length) //length
             const carparkData = data.items[0].carpark_data;
-            console.log(carparkData)
+            console.log(carparkData) //array of Objects
+            console.log (typeof(carparkData));
             console.log(Object.keys(carparkData).length) //length
-            console.log(carparkData[0]);
-            console.log(carparkData[0].carpark_info);
+            console.log(carparkData[0]); //first Object of array
 
+            console.log(carparkData[0].carpark_info);
+            console.log (typeof(carparkData[0].carpark_info));
+
+            console.log(carparkData[0].carpark_info[0].total_lots);
+            console.log(carparkData[0].carpark_info[0].lot_type);
+            console.log(carparkData[0].carpark_info[0].lots_available);
 
             var table = document.getElementById("myTable")
-            var scrollDirection = false;
             for (var i = 0; i < carparkData.length; i++){
                 var row = `<tr>
                                 <td>${carparkData[i].carpark_number}</td>
                                 <td>${carparkData[i].update_datetime}</td>
-                                <td>${carparkData[i].carpark_info.lots_available}</td>
-                                <td>${carparkData[i].carpark_info.lots_type}</td>
-                                <td>${carparkData[i].carpark_info.total_lots}</td>
+                                <td>${carparkData[i].carpark_info[0].lots_available}</td>
+                                <td>${carparkData[i].carpark_info[0].lot_type}</td>
+                                <td>${carparkData[i].carpark_info[0].total_lots}</td>
                           </tr>`
                 table.innerHTML += row
-                onClick scrollDirection = true;
-
             }
         } 
         throw new Error("Request failed");
