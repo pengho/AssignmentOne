@@ -16,7 +16,7 @@ async function getData() {
             console.log(Object.keys(data).length) //length
             const carparkData = data.items[0].carpark_data;
             console.log(carparkData) //array of Objects
-            console.log (typeof(carparkData));
+            /*console.log (typeof(carparkData));
             console.log(Object.keys(carparkData).length) //length
             console.log(carparkData[0]); //first Object of array
 
@@ -25,7 +25,7 @@ async function getData() {
 
             console.log(carparkData[0].carpark_info[0].total_lots);
             console.log(carparkData[0].carpark_info[0].lot_type);
-            console.log(carparkData[0].carpark_info[0].lots_available);
+            console.log(carparkData[0].carpark_info[0].lots_available);*/
 
             var table = document.getElementById("myTable")
             for (var i = 0; i < carparkData.length; i++){
