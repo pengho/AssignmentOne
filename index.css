@@ -1,10 +1,9 @@
-table {
-	width: 80%;
-}
+/*Assignment One (02.526 IDV)
+Due: 25-Feb*/
 
 td{
 	text-align: center;
-	font-size: 18px;
+	font-size: 17px;
 	background-color: #FAF7EF;
 }
 
@@ -13,7 +12,10 @@ td{
 th{
 	text-align: center;
 	background-color: #FBD06A;
-	font-size: 25px;
+	font-size: 22px;
+	text-transform: uppercase;
+	height: 50px;
+	/*position: fixed;*/
 }
 
 tr:hover td{

@@ -6,6 +6,7 @@ window.onload = () => { // execute commands inside every time browser reloaded
     getData()
 }
 
+
 async function getData() {
     try{
         const response = await fetch ("https://api.data.gov.sg/v1/transport/carpark-availability");
