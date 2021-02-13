@@ -2,21 +2,21 @@
 // Due: 25-Feb
 'use strict'
 
-window.onload = () => { // execute commands inside every time browser reloaded
-    getData()
-}
+// execute commands inside every time browser reloaded
+window.onload = () => { getData() }
 
 
+//get Data and append to HTML table
 async function getData() {
     try{
         const response = await fetch ("https://api.data.gov.sg/v1/transport/carpark-availability");
         if (response.ok){
             const data = await response.json();
-            console.log (data);
+            /*console.log (data);
             console.log (typeof(data));
-            console.log(Object.keys(data).length) //length
+            console.log(Object.keys(data).length) //length*/
             const carparkData = data.items[0].carpark_data;
-            console.log(carparkData) //array of Objects
+            // console.log(carparkData) //array of Objects
             /*console.log (typeof(carparkData));
             console.log(Object.keys(carparkData).length) //length
             console.log(carparkData[0]); //first Object of array
@@ -29,7 +29,12 @@ async function getData() {
             console.log(carparkData[0].carpark_info[0].lots_available);*/
 
             var table = document.getElementById("myTable")
+             // Making Blank array in order to push datas later
+            let totalLotsArray = new Array();
+            let totalAvailArray = new Array();
             for (var i = 0; i < carparkData.length; i++){
+                // const carparkNum = carparkData[i].carpark_number
+                // console.log(carparkNum)
                 var row = `<tr>
                                 <td>${carparkData[i].carpark_number}</td>
                                 <td>${carparkData[i].update_datetime}</td>
@@ -38,7 +43,12 @@ async function getData() {
                                 <td>${carparkData[i].carpark_info[0].total_lots}</td>
                           </tr>`
                 table.innerHTML += row
+                // Pushing wanted Data to an array
+                totalLotsArray.push(carparkData[i].carpark_info[0].total_lots);
+                totalAvailArray.push(carparkData[i].carpark_info[0].lots_available);
             }
+            // Returning Array
+            return totalLotsArray, totalAvailArray
         } 
         throw new Error("Request failed");
     } 
@@ -46,11 +56,21 @@ async function getData() {
         console.log(error);
         }
 } 
+// Changing the way we call getData()
+getData().then(totalLots => console.log("first variable: ", totalLotsArray));
+getData().then(totalLots => console.log("second variable: ", totalAvailArray));
 
+/*
+//sort the column
+function sortCol(colName){
+    // on click
+    // then do something
+    const dataType = typeof carparkData[i].carpark_info[0].lots_available;
+    console.log(dataType)
+    sortDirection = !sortDirection;
 
-
-
-
+}
+*/
 
 
 
