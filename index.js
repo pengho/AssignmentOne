@@ -57,7 +57,7 @@ async function getData() {
         }
 } 
 // Changing the way we call getData()
-getData().then(totalLots => console.log("total lots: ", totalLotsArray));
-getData().then(totalAvail => console.log("second variable: ", totalAvailArray));
+getData().then(totalLotsArray => console.log("total lots: ", totalLotsArray));
+// getData().then(totalAvailArray => console.log("total available: ", totalAvailArray));
 
 
