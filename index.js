@@ -43,12 +43,12 @@ async function getData() {
                                 <td>${carparkData[i].carpark_info[0].total_lots}</td>
                           </tr>`
                 table.innerHTML += row
-                // Pushing wanted Data to an array
-                totalLotsArray.push(carparkData[i].carpark_info[0].total_lots);
-                totalAvailArray.push(carparkData[i].carpark_info[0].lots_available);
+                // Pushing wanted Data to an array, parse as an integer for use in calculations
+                totalLotsArray.push(parseInt(carparkData[i].carpark_info[0].total_lots));
+                totalAvailArray.push(parseInt(carparkData[i].carpark_info[0].lots_available));
             }
             // Returning Array
-            return totalLotsArray, totalAvailArray
+            return totalLotsArray, totalAvailArray;
         } 
         throw new Error("Request failed");
     } 
@@ -57,20 +57,26 @@ async function getData() {
         }
 } 
 // Changing the way we call getData()
-getData().then(totalLots => console.log("first variable: ", totalLotsArray));
-getData().then(totalLots => console.log("second variable: ", totalAvailArray));
+getData().then(totalLots => console.log("first variable: ", totalLots));
+getData().then(totalAvail => console.log("second variable: ", totalAvail));
 
-/*
+
 //sort the column
-function sortCol(colName){
+function calUtiRate(totalLots, totalAvail){
     // on click
     // then do something
-    const dataType = typeof carparkData[i].carpark_info[0].lots_available;
-    console.log(dataType)
-    sortDirection = !sortDirection;
-
+    let totalUtiRateArray = new Array();
+    for (let i = 0; i<totalLots.length; i++){
+        const utiRate = totalLots[i]/totalAvail[i];
+        var row2 = `<tr>
+                        <td>${utiRate}</td>
+                   </tr>`
+        table.innerHTML += row2
+        totalAvailArray.push(utiRate);
+    }
+    return utiRate; 
 }
-*/
+
 
 
 
