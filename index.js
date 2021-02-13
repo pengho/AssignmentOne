@@ -57,25 +57,26 @@ async function getData() {
         }
 } 
 // Changing the way we call getData()
-getData().then(totalLots => console.log("first variable: ", totalLots));
-getData().then(totalAvail => console.log("second variable: ", totalAvail));
+getData().then(totalLots => console.log("total lots: ", totalLotsArray));
+getData().then(totalAvail => console.log("second variable: ", totalAvailArray));
 
 
 //sort the column
-function calUtiRate(totalLots, totalAvail){
-    // on click
-    // then do something
-    let totalUtiRateArray = new Array();
-    for (let i = 0; i<totalLots.length; i++){
-        const utiRate = totalLots[i]/totalAvail[i];
-        var row2 = `<tr>
-                        <td>${utiRate}</td>
-                   </tr>`
-        table.innerHTML += row2
-        totalAvailArray.push(utiRate);
-    }
-    return utiRate; 
-}
+// function calUtiRate(totalLots, totalAvail){
+//     // on click
+//     // then do something
+//     let totalUtiRateArray = new Array();
+//     for (let i = 0; i<totalLots.length; i++){
+//         const utiRate = totalLots[i]/totalAvail[i];
+//         var row2 = `<tr>
+//                         <td>${utiRate}</td>
+//                    </tr>`
+//         table.innerHTML += row2
+//         totalAvailArray.push(utiRate);
+//         console.log("Hello")
+//     }
+//     return utiRate; 
+// }
 
 
 
