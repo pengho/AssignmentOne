@@ -61,24 +61,3 @@ getData().then(totalLots => console.log("total lots: ", totalLotsArray));
 getData().then(totalAvail => console.log("second variable: ", totalAvailArray));
 
 
-//sort the column
-// function calUtiRate(totalLots, totalAvail){
-//     // on click
-//     // then do something
-//     let totalUtiRateArray = new Array();
-//     for (let i = 0; i<totalLots.length; i++){
-//         const utiRate = totalLots[i]/totalAvail[i];
-//         var row2 = `<tr>
-//                         <td>${utiRate}</td>
-//                    </tr>`
-//         table.innerHTML += row2
-//         totalAvailArray.push(utiRate);
-//         console.log("Hello")
-//     }
-//     return utiRate; 
-// }
-
-
-
-
-
