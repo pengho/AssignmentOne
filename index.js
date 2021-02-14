@@ -31,7 +31,7 @@ async function getData() {
             var table = document.getElementById("myTable")
              // Making Blank array in order to push datas later
             let totalLotsArray = new Array();
-            let totalAvailArray = new Array();
+            let totalAvaArray = new Array();
             for (var i = 0; i < carparkData.length; i++){
                 // const carparkNum = carparkData[i].carpark_number
                 // console.log(carparkNum)
@@ -43,12 +43,12 @@ async function getData() {
                                 <td>${carparkData[i].carpark_info[0].total_lots}</td>
                           </tr>`
                 table.innerHTML += row
-                // Pushing wanted Data to an array, parse as an integer for use in calculations
+                // Pushing Data to an array, parse as an integer for use in calculations
                 totalLotsArray.push(parseInt(carparkData[i].carpark_info[0].total_lots));
-                totalAvailArray.push(parseInt(carparkData[i].carpark_info[0].lots_available));
+                totalAvaArray.push(parseInt(carparkData[i].carpark_info[0].lots_available));
             }
             // Returning Array
-            return totalLotsArray, totalAvailArray;
+            return totalLotsArray, totalAvaArray;
         } 
         throw new Error("Request failed");
     } 
@@ -57,7 +57,4 @@ async function getData() {
         }
 } 
 // Changing the way we call getData()
-getData().then(totalLotsArray => console.log("total lots: ", totalLotsArray));
-// getData().then(totalAvailArray => console.log("total available: ", totalAvailArray));
-
-
+getData().then(totalLots => console.log("total lots: ", totalLots)).then(totalAva => console.log("total available: ", totalAva));
