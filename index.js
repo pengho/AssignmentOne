@@ -42,10 +42,9 @@ async function getData() {
                                 <td>${carparkData[i].carpark_info[0].lots_available}</td>
                                 <td>${carparkData[i].carpark_info[0].lot_type}</td>
                                 <td>${carparkData[i].carpark_info[0].total_lots}</td>
-                                <td>${carparkData[i].carpark_info[0].total_lots-carparkData[i].carpark_info[0].lots_available}</td>
-                          </tr>`
+                                <td>${(carparkData[i].carpark_info[0].total_lots-carparkData[i].carpark_info[0].lots_available)/(carparkData[i].carpark_info[0].total_lots)}</td>
+                            </tr>`
                 table.innerHTML += row
-                    // <td>${(carparkData[i].carpark_info[0].total_lots-carparkData[i].carpark_info[0].lots_available)/(carparkData[i].carpark_info[0].total_lots)}</td>
                     // Pushing Data to an array, parse as an integer for use in calculations
                     //totalLotsArray.push(parseInt(carparkData[i].carpark_info[0].total_lots));
                     //totalAvaArray.push(parseInt(carparkData[i].carpark_info[0].lots_available));
