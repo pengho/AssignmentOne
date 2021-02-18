@@ -3,7 +3,7 @@
 'use strict'
 
 // execute commands inside every time browser reloaded
-window.onload = () => { getData() }
+//window.onload = () => { getData() }
 
 
 //get Data and append to HTML table
