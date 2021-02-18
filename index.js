@@ -37,7 +37,7 @@ async function getData() {
                 // const carparkNum = carparkData[i].carpark_number
                 // console.log(carparkNum)
                 var x = (carparkData[i].carpark_info[0].total_lots - carparkData[i].carpark_info[0].lots_available) / (carparkData[i].carpark_info[0].total_lots)
-                var rate = Number(x / 100).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
+                var rate = Number(x).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
                 var row = `<tr>
                                     <td>${carparkData[i].carpark_number}</td>
                                     <td>${carparkData[i].update_datetime}</td>
