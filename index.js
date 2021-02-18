@@ -51,13 +51,14 @@ async function getData() {
                     //totalAvaArray.push(parseInt(carparkData[i].carpark_info[0].lots_available));
             }
             // Returning Array
-            return totalLotsArray, totalAvaArray;
+            //return totalLotsArray, totalAvaArray;
         }
         throw new Error("Request failed");
     } catch (error) {
         console.log(error);
     }
 }
+getData();
 // Changing the way we call getData()
 //getData().then(totalLots => console.log("total lots: ", totalLots));
 //getData().then(totalAva => console.log("total available: ", totalAva));
