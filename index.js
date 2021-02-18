@@ -8,9 +8,9 @@ window.onload = () => { getData() }
 
 //get Data and append to HTML table
 async function getData() {
-    try{
-        const response = await fetch ("https://api.data.gov.sg/v1/transport/carpark-availability");
-        if (response.ok){
+    try {
+        const response = await fetch("https://api.data.gov.sg/v1/transport/carpark-availability");
+        if (response.ok) {
             const data = await response.json();
             /*console.log (data);
             console.log (typeof(data));
@@ -29,10 +29,10 @@ async function getData() {
             console.log(carparkData[0].carpark_info[0].lots_available);*/
 
             var table = document.getElementById("myTable")
-             // Making Blank array in order to push datas later
+                // Making Blank array in order to push datas later
             let totalLotsArray = new Array();
             let totalAvaArray = new Array();
-            for (var i = 0; i < carparkData.length; i++){
+            for (var i = 0; i < carparkData.length; i++) {
                 // const carparkNum = carparkData[i].carpark_number
                 // console.log(carparkNum)
                 var row = `<tr>
@@ -43,18 +43,19 @@ async function getData() {
                                 <td>${carparkData[i].carpark_info[0].total_lots}</td>
                           </tr>`
                 table.innerHTML += row
-                // Pushing Data to an array, parse as an integer for use in calculations
+                    // Pushing Data to an array, parse as an integer for use in calculations
                 totalLotsArray.push(parseInt(carparkData[i].carpark_info[0].total_lots));
                 totalAvaArray.push(parseInt(carparkData[i].carpark_info[0].lots_available));
             }
             // Returning Array
             return totalLotsArray, totalAvaArray;
-        } 
-        throw new Error("Request failed");
-    } 
-        catch (error) {
-        console.log(error);
         }
-} 
+        throw new Error("Request failed");
+    } catch (error) {
+        console.log(error);
+    }
+}
 // Changing the way we call getData()
-getData().then(totalLots => console.log("total lots: ", totalLots)).then(totalAva => console.log("total available: ", totalAva));
+getData().then(totalLots => console.log("total lots: ", totalLots));
+getData().then(totalAva => console.log("total available: ", totalAva));
+//test
