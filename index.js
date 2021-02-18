@@ -36,15 +36,16 @@ async function getData() {
             for (var i = 0; i < carparkData.length; i++) {
                 // const carparkNum = carparkData[i].carpark_number
                 // console.log(carparkNum)
-                var rate = parseFloat(carparkData[i].carpark_info[0].total_lots - carparkData[i].carpark_info[0].lots_available) / (carparkData[i].carpark_info[0].total_lots).toFixed(2) + "%"
+                var x = (carparkData[i].carpark_info[0].total_lots - carparkData[i].carpark_info[0].lots_available) / (carparkData[i].carpark_info[0].total_lots)
+                var rate = parseFloat(x).toFixed(2) + "%"
                 var row = `<tr>
-                                <td>${carparkData[i].carpark_number}</td>
-                                <td>${carparkData[i].update_datetime}</td>
-                                <td>${carparkData[i].carpark_info[0].lots_available}</td>
-                                <td>${carparkData[i].carpark_info[0].lot_type}</td>
-                                <td>${carparkData[i].carpark_info[0].total_lots}</td>
-                                <td>${rate}</td>
-                            </tr>`
+                                    <td>${carparkData[i].carpark_number}</td>
+                                    <td>${carparkData[i].update_datetime}</td>
+                                    <td>${carparkData[i].carpark_info[0].lots_available}</td>
+                                    <td>${carparkData[i].carpark_info[0].lot_type}</td>
+                                    <td>${carparkData[i].carpark_info[0].total_lots}</td>
+                                    <td>${rate}</td>
+                                </tr>`
                 table.innerHTML += row
                     // Pushing Data to an array, parse as an integer for use in calculations
                     //totalLotsArray.push(parseInt(carparkData[i].carpark_info[0].total_lots));
