@@ -58,6 +58,5 @@ async function getData() {
     }
 }
 // Changing the way we call getData()
-getData();
 //getData().then(totalLots => console.log("total lots: ", totalLots));
 //getData().then(totalAva => console.log("total available: ", totalAva));
